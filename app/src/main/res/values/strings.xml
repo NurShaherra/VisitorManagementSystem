@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">VisitorManagementSystem</string>
+    <string name="welcome">Welcome Manager!</string>
+    <string name="viewVisitorInfo">View visitor information</string>
+    <string name="viewSummary">View summary</string>
+    <string name="evacuation_report">Evacuation report</string>
+
+
 </resources>
