@@ -72,7 +72,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ManagerReport"></activity>
+        <activity android:name=".ManagerReport" />
+        <activity android:name=".HostRegisterActivity" />
+        <activity android:name=".QRManualActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".LicenseActivity" />
+        <activity android:name=".ConfirmActivity" />
+        <activity android:name=".SignOutActivity"></activity>
     </application>
 
 </manifest>

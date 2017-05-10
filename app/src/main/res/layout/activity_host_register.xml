@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a15031777.visitormanagementsystem.EditVisitor">
+    tools:context="com.example.a15031777.visitormanagementsystem.HostRegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -98,54 +98,16 @@
                 android:ems="10"
                 android:inputType="textMultiLine" />
 
-            <TextView
-                android:id="@+id/textView26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editText"
-                android:layout_alignStart="@+id/editText"
-                android:layout_below="@+id/editText"
-                android:layout_marginTop="25dp"
-                android:text="Arrived By:" />
 
-            <Spinner
-                android:id="@+id/spinnerTrans"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView26" />
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editText12"
-                android:layout_alignStart="@+id/editText12"
-                android:layout_below="@+id/spinnerTrans"
-                android:text="License Plate Number:" />
-
-            <EditText
-                android:id="@+id/editText12"
+            <Button
+                android:id="@+id/buttonSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/editText"
                 android:layout_alignRight="@+id/editText"
-                android:layout_below="@+id/textView27"
-                android:ems="10"
-                android:inputType="textMultiLine" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText12"
-                android:layout_alignRight="@+id/editText12"
-                android:layout_below="@+id/editText12"
-                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/editText"
                 android:layout_marginTop="25dp"
-                android:text="Save"
-                android:layout_alignParentBottom="true" />
+                android:text="Save" />
 
         </RelativeLayout>
     </LinearLayout>

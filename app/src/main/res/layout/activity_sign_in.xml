@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a15031777.visitormanagementsystem.EditVisitor">
+    tools:context="com.example.a15031777.visitormanagementsystem.SignInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,55 +36,16 @@
                 android:layout_marginStart="25dp"
                 android:layout_toEndOf="@+id/imageButton"
                 android:layout_toRightOf="@+id/imageButton"
-                android:text="TextView" />
+                android:text="Sign In" />
 
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/imageButton"
-                android:layout_alignStart="@+id/imageButton"
-                android:layout_below="@+id/imageButton"
-                android:layout_marginTop="25dp"
-                android:text="Name:" />
-
-            <EditText
-                android:id="@+id/editTextName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView23"
-                android:layout_alignStart="@+id/textView23"
-                android:layout_below="@+id/textView23"
-                android:ems="10"
-                android:inputType="textMultiLine" />
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editTextName"
-                android:layout_alignStart="@+id/editTextName"
-                android:layout_below="@+id/editTextName"
-                android:layout_marginTop="25dp"
-                android:text="Email:" />
-
-            <EditText
-                android:id="@+id/editTextEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView24"
-                android:layout_alignStart="@+id/textView24"
-                android:layout_below="@+id/textView24"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
 
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editTextEmail"
-                android:layout_alignStart="@+id/editTextEmail"
-                android:layout_below="@+id/editTextEmail"
+                android:layout_alignLeft="@+id/imageButton"
+                android:layout_alignStart="@+id/imageButton"
+                android:layout_below="@+id/imageButton"
                 android:layout_marginTop="25dp"
                 android:text="IC Number:" />
 
@@ -92,9 +53,10 @@
                 android:id="@+id/editText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editTextEmail"
-                android:layout_alignRight="@+id/editTextEmail"
+                android:layout_alignLeft="@+id/textView25"
+                android:layout_alignStart="@+id/textView25"
                 android:layout_below="@+id/textView25"
+                android:layout_marginTop="25dp"
                 android:ems="10"
                 android:inputType="textMultiLine" />
 
@@ -116,36 +78,17 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView26" />
 
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editText12"
-                android:layout_alignStart="@+id/editText12"
-                android:layout_below="@+id/spinnerTrans"
-                android:text="License Plate Number:" />
-
-            <EditText
-                android:id="@+id/editText12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText"
-                android:layout_alignRight="@+id/editText"
-                android:layout_below="@+id/textView27"
-                android:ems="10"
-                android:inputType="textMultiLine" />
-
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText12"
-                android:layout_alignRight="@+id/editText12"
-                android:layout_below="@+id/editText12"
+                android:layout_alignLeft="@+id/editText"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/editText"
+                android:layout_below="@+id/spinnerTrans"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
-                android:text="Save"
-                android:layout_alignParentBottom="true" />
+                android:text="@string/next" />
 
         </RelativeLayout>
     </LinearLayout>
