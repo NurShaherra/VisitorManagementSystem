@@ -42,7 +42,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
-            android:text="Name:" />
+            android:text="@string/fullname" />
 
         <TextView
             android:id="@+id/textView5"
@@ -60,7 +60,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
-            android:text="Email:" />
+            android:text="@string/email" />
 
         <TextView
             android:id="@+id/textView7"
@@ -78,7 +78,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
-            android:text="IC Number:" />
+            android:text="@string/icNumber" />
 
         <TextView
             android:id="@+id/textView9"
@@ -99,7 +99,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
-            android:text="Arrived by:" />
+            android:text="@string/arrivedBy" />
 
         <TextView
             android:id="@+id/textView11"
@@ -117,7 +117,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
-            android:text="License Plate number:" />
+            android:text="@string/license" />
 
         <TextView
             android:id="@+id/textView17"
@@ -133,6 +133,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Confirm" />
+            android:text="@string/confirm" />
     </LinearLayout>
 </ScrollView>

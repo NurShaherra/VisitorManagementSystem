@@ -47,7 +47,7 @@
                 android:layout_alignStart="@+id/imageButton"
                 android:layout_below="@+id/imageButton"
                 android:layout_marginTop="25dp"
-                android:text="License Plate Number:" />
+                android:text="@string/license" />
 
             <EditText
                 android:id="@+id/editText"
