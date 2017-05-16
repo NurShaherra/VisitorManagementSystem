@@ -1,15 +1,28 @@
 package com.example.a15031777.visitormanagementsystem;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        tv = (TextView)findViewById(R.id.textViewWelcome);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        int id = pref.getInt("id",-1);
+        DBHandler db = new DBHandler(this);
+        User currentUser = db.getUserWithId(id);
+        db.close();
+        tv.append(" "+currentUser.getUserRole()+"!");
     }
 
     @Override
@@ -27,7 +40,11 @@ public class SecondActivity extends AppCompatActivity {
 
 
         if (id == R.id.menu_logout) {
-
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(SecondActivity.this);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putBoolean("isLoggedIn",false).commit();
+            Intent i = new Intent(SecondActivity.this,MainActivity.class);
+            startActivity(i);
             return true;
 
         }

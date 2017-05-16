@@ -20,7 +20,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //Table Name
     private static final String TABLE_USER = "User";
     //Table Columns Names
-    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "user_name";
     private static final String COLUMN_EMAIL = "email_address";
     private static final String COLUMN_PW = "password";
@@ -65,10 +65,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //this will return a user object
     //this is for getting a specific user, mostly by getting the id from the listview or array like index.
-    public User getUser(int id) {
+    public User getUserWithId(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_USER, new String[]{COLUMN_ID, COLUMN_USERNAME, COLUMN_EMAIL, COLUMN_PW, COLUMN_ROLE, COLUMN_NAME, COLUMN_ADDRESS}, COLUMN_ID + "=?",
-                new String[]{String.valueOf(id)}, null, null, null, null);
+        String selectQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_ID + " = " + id;
+        Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
@@ -76,6 +76,8 @@ public class DBHandler extends SQLiteOpenHelper {
         User obj = new User(cursor.getInt(0),
                 cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
         //return the obj
+        cursor.close();
+        db.close();
         return obj;
     }
 
@@ -122,27 +124,42 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+
     public void removeAllUser() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("delete from " + TABLE_USER);
         db.close();
     }
 
-    public boolean checkUser(String username, String password) {
+    public Boolean checkUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         // selection criteria
-        String selectQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_USERNAME + " = " +
-                username + " AND " + COLUMN_PW + " = " + password;
-        Cursor cursor = db.rawQuery(selectQuery,null);
-        int cursorCount = cursor.getCount();
-        cursor.close();
-        db.close();
-        if (cursorCount > 0) {
+        String selectQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_USERNAME + " = '" +
+                username + "' AND " + COLUMN_PW + " = '" + password + "'";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.close();
             return true;
         }
+        cursor.moveToFirst();
         return false;
     }
 
-
+    public int getUserId(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT " + COLUMN_ID + " FROM " + TABLE_USER + " WHERE " + COLUMN_USERNAME + " = '" +
+                username + "' AND " + COLUMN_PW + " = '" + password + "'";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        //create the user obj
+        int id = cursor.getInt(0);
+        //return the obj
+        cursor.close();
+        db.close();
+        return id;
+    }
 }
+
 
