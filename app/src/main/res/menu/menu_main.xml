@@ -13,5 +13,9 @@
         android:id="@+id/menu_edit"
         android:title="Edit">
     </item>
+    <item
+        android:id="@+id/menu_logout"
+        android:title="Logout">
+    </item>
 
 </menu>

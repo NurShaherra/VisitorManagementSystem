@@ -127,5 +127,22 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("delete from " + TABLE_USER);
         db.close();
     }
+
+    public boolean checkUser(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selectQuery = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_USERNAME + " = " +
+                username + " AND " + COLUMN_PW + " = " + password;
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        int cursorCount = cursor.getCount();
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return true;
+        }
+        return false;
+    }
+
+
 }
 
