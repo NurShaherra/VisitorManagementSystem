@@ -46,7 +46,7 @@
                 android:layout_alignStart="@+id/imageButton"
                 android:layout_below="@+id/imageButton"
                 android:layout_marginTop="25dp"
-                android:text="Role:" />
+                android:text="@string/role" />
 
             <Spinner
                 android:id="@+id/spinnerRole"
@@ -64,7 +64,7 @@
                 android:layout_alignStart="@+id/textViewR"
                 android:layout_below="@+id/spinnerRole"
                 android:layout_marginTop="25dp"
-                android:text="Full name:" />
+                android:text="@string/fullname" />
 
             <EditText
                 android:id="@+id/editTextName"
@@ -84,7 +84,7 @@
                 android:layout_alignStart="@+id/editTextName"
                 android:layout_below="@+id/editTextName"
                 android:layout_marginTop="25dp"
-                android:text="Username;" />
+                android:text="@string/username" />
 
             <EditText
                 android:id="@+id/editTextUsername"
@@ -97,21 +97,21 @@
                 android:inputType="textMultiLine" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/editTextUsername"
                 android:layout_alignStart="@+id/editTextUsername"
                 android:layout_below="@+id/editTextUsername"
-                android:text="Password:" />
+                android:text="@string/password" />
 
             <EditText
                 android:id="@+id/editTextPW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView20"
-                android:layout_alignStart="@+id/textView20"
-                android:layout_below="@+id/textView20"
+                android:layout_alignLeft="@+id/textView"
+                android:layout_alignStart="@+id/textView"
+                android:layout_below="@+id/textView"
                 android:ems="10"
                 android:inputType="textPassword" />
 
@@ -122,7 +122,7 @@
                 android:layout_alignLeft="@+id/editTextPW"
                 android:layout_alignStart="@+id/editTextPW"
                 android:layout_below="@+id/editTextPW"
-                android:text="Email:" />
+                android:text="@string/email" />
 
             <EditText
                 android:id="@+id/editTextEmail"
@@ -141,7 +141,7 @@
                 android:layout_below="@+id/editTextEmail"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
-                android:text="Add" />
+                android:text="@string/add" />
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>

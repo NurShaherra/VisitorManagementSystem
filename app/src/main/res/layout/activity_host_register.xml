@@ -39,22 +39,22 @@
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/textViewName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/imageButton"
                 android:layout_alignStart="@+id/imageButton"
                 android:layout_below="@+id/imageButton"
                 android:layout_marginTop="25dp"
-                android:text="Name:" />
+                android:text="@string/fullname" />
 
             <EditText
                 android:id="@+id/editTextName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textView23"
-                android:layout_alignStart="@+id/textView23"
-                android:layout_below="@+id/textView23"
+                android:layout_alignLeft="@+id/textViewName"
+                android:layout_alignStart="@+id/textViewName"
+                android:layout_below="@+id/textViewName"
                 android:ems="10"
                 android:inputType="textMultiLine" />
 
@@ -66,7 +66,7 @@
                 android:layout_alignStart="@+id/editTextName"
                 android:layout_below="@+id/editTextName"
                 android:layout_marginTop="25dp"
-                android:text="Email:" />
+                android:text="@string/email" />
 
             <EditText
                 android:id="@+id/editTextEmail"
@@ -86,7 +86,7 @@
                 android:layout_alignStart="@+id/editTextEmail"
                 android:layout_below="@+id/editTextEmail"
                 android:layout_marginTop="25dp"
-                android:text="IC Number:" />
+                android:text="@string/icNumber" />
 
             <EditText
                 android:id="@+id/editText"
@@ -107,7 +107,7 @@
                 android:layout_alignRight="@+id/editText"
                 android:layout_below="@+id/editText"
                 android:layout_marginTop="25dp"
-                android:text="Save" />
+                android:text="@string/save" />
 
         </RelativeLayout>
     </LinearLayout>
