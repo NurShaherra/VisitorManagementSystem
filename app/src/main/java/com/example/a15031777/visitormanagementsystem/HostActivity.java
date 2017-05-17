@@ -3,7 +3,7 @@ package com.example.a15031777.visitormanagementsystem;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class VisitorActivity extends AppCompatActivity {
+public class HostActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
