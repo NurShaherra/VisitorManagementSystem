@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DBHandler db = new DBHandler(MainActivity.this);
+                    DBHandlerUser db = new DBHandlerUser(MainActivity.this);
                     db.removeAllUser();
                     db.addUser(new User(1, "admin", "email", "123", "Administrator", "-", "-"));
                     SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         edit.putBoolean("isLoggedIn", userId).commit();
                         edit.putInt("id", db.getUserId(username, pw)).commit();
                         db.close();
-                        Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                        Intent i = new Intent(MainActivity.this, AdminActivity.class);
                         startActivity(i);
                     } else {
                         Toast.makeText(MainActivity.this, "Your username/password is wrong.", Toast.LENGTH_SHORT).show();
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Intent i = new Intent(MainActivity.this, SecondActivity.class);
+            Intent i = new Intent(MainActivity.this, AdminActivity.class);
             startActivity(i);
         }
     }

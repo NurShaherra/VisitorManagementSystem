@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class SecondActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
     TextView tv;
 
     @Override
@@ -19,7 +19,7 @@ public class SecondActivity extends AppCompatActivity {
         tv = (TextView)findViewById(R.id.textViewWelcome);
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         int id = pref.getInt("id",-1);
-        DBHandler db = new DBHandler(this);
+        DBHandlerUser db = new DBHandlerUser(this);
         User currentUser = db.getUserWithId(id);
         db.close();
         tv.append(" "+currentUser.getUserRole()+"!");
@@ -40,10 +40,10 @@ public class SecondActivity extends AppCompatActivity {
 
 
         if (id == R.id.menu_logout) {
-            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(SecondActivity.this);
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(AdminActivity.this);
             SharedPreferences.Editor edit = pref.edit();
             edit.putBoolean("isLoggedIn",false).commit();
-            Intent i = new Intent(SecondActivity.this,MainActivity.class);
+            Intent i = new Intent(AdminActivity.this,MainActivity.class);
             startActivity(i);
             return true;
 

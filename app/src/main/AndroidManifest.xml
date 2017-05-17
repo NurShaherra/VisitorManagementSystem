@@ -12,10 +12,11 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity"/>
+        <activity android:name=".AdminActivity" />
         <activity android:name=".ManagerReport" />
         <activity android:name=".HostRegisterActivity" />
         <activity android:name=".QRManualActivity" />
@@ -23,6 +24,20 @@
         <activity android:name=".LicenseActivity" />
         <activity android:name=".ConfirmActivity" />
         <activity android:name=".SignOutActivity" />
+        <activity android:name=".SecurityGuardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".VisitorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

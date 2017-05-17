@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Created by HP on 16/5/2017.
  */
 
-public class DBHandler extends SQLiteOpenHelper {
+public class DBHandlerUser extends SQLiteOpenHelper {
     //Database Version
     private static final int DATABASE_VERSION = 1;
     //Database Name
@@ -29,7 +29,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_ADDRESS = "unit_address";
 
 
-    public DBHandler(Context context) {
+    public DBHandlerUser(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
