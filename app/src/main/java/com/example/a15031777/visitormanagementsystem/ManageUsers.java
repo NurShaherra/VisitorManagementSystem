@@ -25,7 +25,7 @@ public class ManageUsers extends AppCompatActivity {
         Intent intent = getIntent();
 
         DBHandlerUser db = new DBHandlerUser(this);
-        lv = (ListView) findViewById(R.id.lv);
+        lv = (ListView) findViewById(R.id.lv_users);
         spn = (Spinner) findViewById(R.id.spinner);
 
 //        display all users in listview
