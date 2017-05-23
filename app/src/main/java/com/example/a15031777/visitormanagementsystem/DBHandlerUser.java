@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,36 @@ public class DBHandlerUser extends SQLiteOpenHelper {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_USER + "( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_USERNAME + " TEXT," + COLUMN_EMAIL + " TEXT," +
                 COLUMN_PW + " TEXT," + COLUMN_ROLE + " TEXT," + COLUMN_NAME + " TEXT," + COLUMN_ADDRESS + " TEXT " + ")";
         db.execSQL(CREATE_TABLE);
+        ContentValues values = new ContentValues();
+        //No need id because auto increment
+        for (int i = 0; i <= 3; i++) {
+            values.put(COLUMN_USERNAME, "admin" + i);
+            values.put(COLUMN_EMAIL, "email");
+            values.put(COLUMN_PW, "123");
+            values.put(COLUMN_ROLE, "Administrator");
+            values.put(COLUMN_NAME, "-");
+            values.put(COLUMN_ADDRESS, "-");
+            db.insert(TABLE_USER, null, values);
+        }
+        for (int x = 0; x <= 2; x++) {
+            values.put(COLUMN_USERNAME, "manager" + x);
+            values.put(COLUMN_EMAIL, "email");
+            values.put(COLUMN_PW, "123");
+            values.put(COLUMN_ROLE, "Manager");
+            values.put(COLUMN_NAME, "-");
+            values.put(COLUMN_ADDRESS, "-");
+            db.insert(TABLE_USER, null, values);
+        }
+        for (int y = 0; y <= 4; y++) {
+            values.put(COLUMN_USERNAME, "security" + y);
+            values.put(COLUMN_EMAIL, "email");
+            values.put(COLUMN_PW, "123");
+            values.put(COLUMN_ROLE, "Security Guard");
+            values.put(COLUMN_NAME, "-");
+            values.put(COLUMN_ADDRESS, "-");
+            db.insert(TABLE_USER, null, values);
+        }
+
     }
 
     @Override
@@ -79,6 +110,26 @@ public class DBHandlerUser extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return obj;
+    }
+
+    //This is just to get all the usernames from the database and add it into a String arraylist. nothing special.
+    public ArrayList<String> getAllUsername() {
+        ArrayList<String> usernames = new ArrayList<String>();
+
+        String selectQuery = "SELECT " + COLUMN_USERNAME + " FROM " + TABLE_USER;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                String username = cursor.getString(0);
+                Log.d("username", username);
+                usernames.add(username);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return usernames;
     }
 
     //wowe now it's everything else nice
@@ -159,6 +210,57 @@ public class DBHandlerUser extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return id;
+    }
+
+    //The same as getAllUsernameFilter except it returns a User type arraylist.
+    public ArrayList<User> getUsersFiltered(String keyword) {
+        ArrayList<User> users = new ArrayList<User>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID, COLUMN_USERNAME, COLUMN_EMAIL, COLUMN_PW, COLUMN_ROLE, COLUMN_NAME, COLUMN_ADDRESS};
+        String condition = COLUMN_ROLE + " Like ?";
+        String[] args = {"%" + keyword + "%"};
+        Cursor cursor = db.query(TABLE_USER, columns, condition, args,
+                null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                User obj = new User(cursor.getInt(0),
+                        cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+                users.add(obj);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return users;
+    }
+
+    //This method uses the data passed into the keyword parameter to filter through the database. In this case, it would be role.
+    public ArrayList<String> getAllUsernameFilter(String keyword) {
+        //Create a new list that is empty.
+        ArrayList<String> usernames = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        //These are the columns for the table user.
+        //Why is it done this way and there is no select query statement because we are not using rawQuery() but query() instead.
+        String[] columns = {COLUMN_ID, COLUMN_USERNAME, COLUMN_EMAIL, COLUMN_PW, COLUMN_ROLE, COLUMN_NAME, COLUMN_ADDRESS};
+        String condition = COLUMN_ROLE + " Like ?";
+        String[] args = {"%" + keyword + "%"};
+        //query works in this way where android helps precompile the queries as rawQueries can cause performance issues. However, it does not mean rawQuery cannot be used.
+        //rawQuery is used when it is absolutely needed. For example, select statements from tables that are joined together.
+        //This is learnt from P05 so yeah...wait for your class to come i guess?
+        Cursor cursor = db.query(TABLE_USER, columns, condition, args,
+                null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                String username = cursor.getString(1);
+                Log.d("username", username);
+                usernames.add(username);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return usernames;
     }
 }
 

@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     DBHandlerUser db = new DBHandlerUser(MainActivity.this);
-                    db.removeAllUser();
-                    db.addUser(new User(1, "admin", "email", "123", "Administrator", "-", "-"));
                     SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
                     SharedPreferences.Editor edit = pref.edit();
                     String username = etUName.getText().toString();
