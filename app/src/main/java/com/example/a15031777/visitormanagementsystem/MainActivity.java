@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         Boolean userLoggedIn = pref.getBoolean("isLoggedIn", false);
+
+
         if (userLoggedIn == false) {
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
