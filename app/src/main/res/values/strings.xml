@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VisitorManagementSystem</string>
+    <string name="app_name">Visitor Management System</string>
     <string name="viewVisitorInfo">View visitor information</string>
     <string name="viewSummary">View summary</string>
     <string name="evacuation_report">Evacuation report</string>
