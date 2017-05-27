@@ -262,6 +262,35 @@ public class DBHandlerUser extends SQLiteOpenHelper {
         db.close();
         return usernames;
     }
+
+    public ArrayList<User> getUser() {
+        ArrayList<User> tasks = new ArrayList<User>();
+        String selectQuery = "SELECT " + COLUMN_ID + ", "
+                + COLUMN_NAME + ", "
+                + COLUMN_USERNAME + ", " + COLUMN_EMAIL + ", " + COLUMN_PW + ", " + COLUMN_ROLE  + ", " + COLUMN_NAME + ", " + COLUMN_ADDRESS
+                + " FROM " + TABLE_USER;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+
+                String username = cursor.getString(1);
+                String email = cursor.getString(2);
+                String pw = cursor.getString(3);
+                String role = cursor.getString(4);
+                String fullName = cursor.getString(5);
+                String add = cursor.getString(6);
+                User obj = new User(id, username, email, pw, role, fullName, add);
+                tasks.add(obj);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return tasks;
+    }
 }
 
 

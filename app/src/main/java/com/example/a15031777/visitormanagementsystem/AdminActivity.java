@@ -48,6 +48,12 @@ public class AdminActivity extends AppCompatActivity {
                 if(position == 0) {
                     Intent i = new Intent(AdminActivity.this, ManageUsers.class);
                     startActivity(i);
+                } else if(position == 1){
+                    Intent i = new Intent(AdminActivity.this, ManageVisitor.class);
+                    startActivity(i);
+                } else if(position == 2){
+                    Intent i = new Intent(AdminActivity.this, ViewSummary.class);
+                    startActivity(i);
                 }
 
 
