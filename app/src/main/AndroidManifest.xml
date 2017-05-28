@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".AdminActivity" />
         <activity android:name=".ManagerReport" />
-        <activity android:name=".HostRegisterActivity" />
         <activity android:name=".QRManualActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".LicenseActivity" />
