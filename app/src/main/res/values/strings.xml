@@ -24,6 +24,7 @@
     <string name="save">Save</string>
     <string name="address">Address:</string>
     <string name="mobileNumber">Mobile Number:</string>
+    <string name="mobileNum">Mobile Number:</string>
     <string-array name="roles">
         <item>All</item>
         <item>Administrator</item>

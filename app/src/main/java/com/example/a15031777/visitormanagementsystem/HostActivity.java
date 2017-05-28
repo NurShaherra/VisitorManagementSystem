@@ -7,15 +7,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class HostActivity extends AppCompatActivity {
-
+    EditText etName , etEmail , etIC, etMobile;
+    Button btnSave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host_register);
+        etName = (EditText)findViewById(R.id.editTextName);
+        etEmail = (EditText)findViewById(R.id.editTextEmail);
+        etIC = (EditText)findViewById(R.id.editTextIC);
+        etMobile = (EditText)findViewById(R.id.editTextMobile);
+        btnSave = (Button)findViewById(R.id.buttonSave);
 
-
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //incomplete as send email and generate qr code is in the works.
+                String name = etName.getText().toString();
+                String email = etEmail.getText().toString();
+                String nric = etIC.getText().toString();
+                int mobile = Integer.parseInt(etMobile.getText().toString());
+                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(HostActivity.this);
+                int id = pref.getInt("isLoggedIn",-1);
+                Visitor visitor = new Visitor(nric,name,email,mobile);
+                DBHandlerVisitor db = new DBHandlerVisitor(HostActivity.this);
+                db.addVisitor(visitor,id);
+                Toast.makeText(HostActivity.this, "Successfully saved visitor!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

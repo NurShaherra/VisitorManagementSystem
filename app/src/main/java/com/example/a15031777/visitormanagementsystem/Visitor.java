@@ -14,11 +14,11 @@ public class Visitor {
     private boolean signedIn;
     private int mobileNum;
 
-    public Visitor(String nric, String fullName, String emailAddress, String modeOfTransport, boolean signedIn, int mobileNum) {
+    public Visitor(String nric, String fullName, String emailAddress, int mobileNum) {
         this.nric = nric;
         this.fullName = fullName;
         this.emailAddress = emailAddress;
-        this.modeOfTransport = modeOfTransport;
+        this.modeOfTransport = "";
         this.signedIn = false;
         this.mobileNum = mobileNum;
     }

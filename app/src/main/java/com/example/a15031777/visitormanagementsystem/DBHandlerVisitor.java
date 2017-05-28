@@ -1,5 +1,6 @@
 package com.example.a15031777.visitormanagementsystem;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -31,8 +32,9 @@ public class DBHandlerVisitor extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        //signed_in is integer (0) is false, (1) is true as SQLite does not have a separate Boolean storage class. Instead, Boolean values are stored as integers 0 (false) and 1 (true).
         String CREATE_TABLE = "CREATE TABLE " + TABLE_VISITOR + "( " + COLUMN_NRIC + " TEXT PRIMARY KEY, " + COLUMN_NAME + " TEXT," + COLUMN_EMAIL + " TEXT," +
-                COLUMN_TRANSPORT + " TEXT," + COLUMN_SIGNED + " INTEGER," + COLUMN_MOBILE + " INTEGER," + COLUMN_LICENSE + " TEXT NOT NULL," + COLUMN_ID + " INTEGER " + ")";
+                COLUMN_TRANSPORT + " TEXT NULL," + COLUMN_SIGNED + " INTEGER," + COLUMN_MOBILE + " INTEGER," + COLUMN_LICENSE + " TEXT NULL," + COLUMN_ID + " INTEGER " + ")";
         db.execSQL(CREATE_TABLE);
     }
 
@@ -42,5 +44,19 @@ public class DBHandlerVisitor extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_VISITOR);
 // Creating tables again
         onCreate(db);
+    }
+
+    public void addVisitor(Visitor visitor, int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NRIC, visitor.getNric());
+        values.put(COLUMN_NAME, visitor.getFullName());
+        values.put(COLUMN_EMAIL, visitor.getEmailAddress());
+        //As when you add a visitor, signed in is always false.
+        values.put(COLUMN_SIGNED, 0);
+        values.put(COLUMN_MOBILE, visitor.getMobileNum());
+        values.put(COLUMN_ID, id);
+        db.insert(TABLE_VISITOR, null, values);
+        db.close();
     }
 }
