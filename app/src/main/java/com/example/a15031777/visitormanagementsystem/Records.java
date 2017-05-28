@@ -8,13 +8,11 @@ public class Records {
     private int reportId;
     private String signedIn;
     private String signOut;
-    private String NRIC;
 
     public Records(int reportId, String signedIn, String signOut, String NRIC) {
         this.reportId = reportId;
         this.signedIn = signedIn;
         this.signOut = signOut;
-        this.NRIC = NRIC;
     }
 
     public int getReportId() {
@@ -27,9 +25,5 @@ public class Records {
 
     public String getSignOut() {
         return signOut;
-    }
-
-    public String getNRIC() {
-        return NRIC;
     }
 }
