@@ -68,7 +68,13 @@ public class DBHandlerUser extends SQLiteOpenHelper {
             values.put(COLUMN_ADDRESS, "-");
             db.insert(TABLE_USER, null, values);
         }
-
+        values.put(COLUMN_USERNAME, "host");
+        values.put(COLUMN_EMAIL, "email");
+        values.put(COLUMN_PW, "123");
+        values.put(COLUMN_ROLE, "Host");
+        values.put(COLUMN_NAME, "-");
+        values.put(COLUMN_ADDRESS, "-");
+        db.insert(TABLE_USER, null, values);
     }
 
     @Override

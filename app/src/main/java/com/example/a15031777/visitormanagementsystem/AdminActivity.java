@@ -30,7 +30,7 @@ public class AdminActivity extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.lv);
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        int id = pref.getInt("id",-1);
+        int id = pref.getInt("isLoggedIn",-1);
         DBHandlerUser db = new DBHandlerUser(this);
         User currentUser = db.getUserWithId(id);
         db.close();
@@ -79,7 +79,7 @@ public class AdminActivity extends AppCompatActivity {
         if (id == R.id.menu_logout) {
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(AdminActivity.this);
             SharedPreferences.Editor edit = pref.edit();
-            edit.putBoolean("isLoggedIn",false).commit();
+            edit.putInt("isLoggedIn",-1).commit();
             Intent i = new Intent(AdminActivity.this,MainActivity.class);
             startActivity(i);
             return true;

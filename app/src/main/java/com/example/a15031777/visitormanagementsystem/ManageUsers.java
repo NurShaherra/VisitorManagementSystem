@@ -43,10 +43,11 @@ public class ManageUsers extends AppCompatActivity {
 
 //        User currentUser = db.getUserWithId(0);
         db.close();
-
-        String[] values =
-                {"All", "Admin", "Manager", "Security Guard"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, values);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.roles, android.R.layout.simple_spinner_item);
+//        String[] values =
+//                {"All", "Admin", "Manager", "Security Guard"};
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, values);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spn.setAdapter(adapter);
 
@@ -75,6 +76,12 @@ public class ManageUsers extends AppCompatActivity {
                     db.close();
                     Toast.makeText(ManageUsers.this, "Security Guard Selected", Toast.LENGTH_SHORT).show();
                     aa.notifyDataSetChanged();
+                } else if (spn.getSelectedItem().toString().equalsIgnoreCase("Host")) {
+                    al.clear();
+                    al.addAll(db.getAllUsernameFilter("Host"));
+                    db.close();
+                    Toast.makeText(ManageUsers.this, "Host Selected", Toast.LENGTH_SHORT).show();
+                    aa.notifyDataSetChanged();
                 } else {
                     al.clear();
                     al.addAll(db.getAllUsername());
@@ -102,7 +109,6 @@ public class ManageUsers extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -121,8 +127,14 @@ public class ManageUsers extends AppCompatActivity {
             startActivity(intent);
             return true;
 
+        } else if (id == R.id.menu_logout) {
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ManageUsers.this);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putInt("isLoggedIn", -1).commit();
+            Intent i = new Intent(ManageUsers.this, MainActivity.class);
+            startActivity(i);
+            return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

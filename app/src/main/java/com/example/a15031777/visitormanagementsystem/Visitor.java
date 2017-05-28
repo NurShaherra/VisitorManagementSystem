@@ -1,21 +1,19 @@
 package com.example.a15031777.visitormanagementsystem;
 
-import android.view.ViewGroup;
-
 /**
  * Created by 15017199 on 28/5/2017.
  */
 
 public class Visitor {
-    private String NRIC;
+    private String nric;
     private String fullName;
     private String emailAddress;
     private String modeOfTransport;
     private boolean signedIn;
     private int mobileNum;
 
-    public Visitor(String NRIC, String fullName, String emailAddress, String modeOfTransport, boolean signedIn, int mobileNum) {
-        this.NRIC = NRIC;
+    public Visitor(String nric, String fullName, String emailAddress, String modeOfTransport, int mobileNum) {
+        this.nric = nric;
         this.fullName = fullName;
         this.emailAddress = emailAddress;
         this.modeOfTransport = modeOfTransport;
@@ -23,8 +21,11 @@ public class Visitor {
         this.mobileNum = mobileNum;
     }
 
-    public String getNRIC() {
-        return NRIC;
+    public boolean isSignedIn() {
+        return signedIn;
+    }
+    public String getNric() {
+        return nric;
     }
 
     public String getFullName() {

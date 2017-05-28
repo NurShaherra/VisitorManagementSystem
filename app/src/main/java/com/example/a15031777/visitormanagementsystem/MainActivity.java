@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.buttonLogin);
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        Boolean userLoggedIn = pref.getBoolean("isLoggedIn", false);
+        int userLoggedIn = pref.getInt("isLoggedIn", -1);
 
 
-        if (userLoggedIn == false) {
+        if (userLoggedIn == -1) {
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -39,11 +39,19 @@ public class MainActivity extends AppCompatActivity {
                     Boolean userId = db.checkUser(username, pw);
 
                     if (userId == true) {
-                        edit.putBoolean("isLoggedIn", userId).commit();
-                        edit.putInt("id", db.getUserId(username, pw)).commit();
+                        int id = db.getUserId(username, pw);
+                        edit.putInt("isLoggedIn", id).commit();
+                        User currentUser = db.getUserWithId(id);
                         db.close();
-                        Intent i = new Intent(MainActivity.this, AdminActivity.class);
-                        startActivity(i);
+                        String role = currentUser.getUserRole();
+                        if (role.equalsIgnoreCase("Administrator")) {
+                            Intent i = new Intent(MainActivity.this, AdminActivity.class);
+                            startActivity(i);
+                        } else if (role.equalsIgnoreCase("Host")) {
+                            Intent i = new Intent(MainActivity.this, HostActivity.class);
+                            startActivity(i);
+                        }
+
                     } else {
                         Toast.makeText(MainActivity.this, "Your username/password is wrong.", Toast.LENGTH_SHORT).show();
                     }
