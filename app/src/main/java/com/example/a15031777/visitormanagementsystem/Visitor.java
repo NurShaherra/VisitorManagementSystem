@@ -1,5 +1,7 @@
 package com.example.a15031777.visitormanagementsystem;
 
+import android.view.ViewGroup;
+
 /**
  * Created by 15017199 on 28/5/2017.
  */
@@ -12,7 +14,7 @@ public class Visitor {
     private boolean signedIn;
     private int mobileNum;
 
-    public Visitor(String nric, String fullName, String emailAddress, String modeOfTransport, int mobileNum) {
+    public Visitor(String nric, String fullName, String emailAddress, String modeOfTransport, boolean signedIn, int mobileNum) {
         this.nric = nric;
         this.fullName = fullName;
         this.emailAddress = emailAddress;
@@ -21,9 +23,6 @@ public class Visitor {
         this.mobileNum = mobileNum;
     }
 
-    public boolean isSignedIn() {
-        return signedIn;
-    }
     public String getNric() {
         return nric;
     }
