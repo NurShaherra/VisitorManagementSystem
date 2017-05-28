@@ -9,7 +9,7 @@ public class Records {
     private String signedIn;
     private String signOut;
 
-    public Records(int reportId, String signedIn, String signOut, String NRIC) {
+    public Records(int reportId, String signedIn, String signOut) {
         this.reportId = reportId;
         this.signedIn = signedIn;
         this.signOut = signOut;
