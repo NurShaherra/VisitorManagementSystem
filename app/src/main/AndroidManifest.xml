@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a15031777.visitormanagementsystem">
 
+    <!--//get user permission for using calendar-->
+    <!--<uses-permission android:name="android.permission.READ_CALENDAR" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_CALENDARI" />-->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
