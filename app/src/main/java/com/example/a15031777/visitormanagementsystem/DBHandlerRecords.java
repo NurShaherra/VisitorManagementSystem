@@ -128,5 +128,29 @@ public class DBHandlerRecords extends SQLiteOpenHelper {
         return result;
     }
 
+    public ArrayList<Records> getRecordsFiltered(String keyword) {
+        ArrayList<Records> record = new ArrayList<Records>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID, COLUMN_SIGNEDIN, COLUMN_SIGNEDOUT};
+        String condition = COLUMN_SIGNEDIN + " Like ?" + COLUMN_SIGNEDOUT + " Like ?";
+
+        String[] args = {"%" + keyword + "%"};
+        Cursor cursor = db.query(TABLE_RECORDS, columns, condition, args,
+                null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                Records obj = new Records(cursor.getInt(0),
+                        cursor.getString(1), cursor.getString(2));
+                record.add(obj);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return record;
+    }
+
 }
 

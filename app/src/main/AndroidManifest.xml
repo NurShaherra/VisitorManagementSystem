@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a15031777.visitormanagementsystem">
-
-    <!--//get user permission for using calendar-->
-    <!--<uses-permission android:name="android.permission.READ_CALENDAR" />-->
-    <!--<uses-permission android:name="android.permission.WRITE_CALENDARI" />-->
-
+    s
+    <!-- //get user permission for using calendar -->
+    <!-- <uses-permission android:name="android.permission.READ_CALENDAR" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_CALENDARI" /> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,15 +26,12 @@
         <activity android:name=".LicenseActivity" />
         <activity android:name=".ConfirmActivity" />
         <activity android:name=".SignOutActivity" />
-        <activity android:name=".SecurityGuardActivity">
-        </activity>
-        <activity android:name=".ManageUsers">
-        </activity>
-        <activity android:name=".HostActivity">
-        </activity>
-        <activity android:name=".ManagerActivity">
-        </activity>
+        <activity android:name=".SecurityGuardActivity"></activity>
+        <activity android:name=".ManageUsers"></activity>
+        <activity android:name=".HostActivity"></activity>
+        <activity android:name=".ManagerActivity"></activity>
         <activity android:name=".ViewSummary" />
-        <activity android:name=".UserDetails"></activity>
-    </application>s
+        <activity android:name=".UserDetails" />
+    </application>
+
 </manifest>
