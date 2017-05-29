@@ -111,7 +111,7 @@ public class DBHandlerUser extends SQLiteOpenHelper {
         }
         //create the user obj
         User obj = new User(cursor.getInt(0),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+                cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
         //return the obj
         cursor.close();
         db.close();
@@ -150,7 +150,7 @@ public class DBHandlerUser extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 User obj = new User(cursor.getInt(0),
-                        cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+                        cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
                 ;
                 //add shit to list
                 users.add(obj);
@@ -233,7 +233,7 @@ public class DBHandlerUser extends SQLiteOpenHelper {
             do {
 
                 User obj = new User(cursor.getInt(0),
-                        cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+                        cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
                 users.add(obj);
             } while (cursor.moveToNext());
         }
@@ -289,7 +289,7 @@ public class DBHandlerUser extends SQLiteOpenHelper {
                 String role = cursor.getString(4);
                 String fullName = cursor.getString(5);
                 String add = cursor.getString(6);
-                User obj = new User(id, username, email, pw, role, fullName, add);
+                User obj = new User(id, username, email,pw,role,fullName,add);
                 tasks.add(obj);
             } while (cursor.moveToNext());
         }
