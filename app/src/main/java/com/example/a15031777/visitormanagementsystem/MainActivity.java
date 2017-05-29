@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
                         } else if (role.equalsIgnoreCase("Manager")) {
                             Intent i = new Intent(MainActivity.this, ManagerActivity.class);
                             startActivity(i);
+                        } else {
+                            Intent i = new Intent(MainActivity.this, SecurityGuardActivity.class);
+                            startActivity(i);
                         }
 
                     } else {
@@ -61,8 +64,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Intent i = new Intent(MainActivity.this, AdminActivity.class);
-            startActivity(i);
+            DBHandlerUser db = new DBHandlerUser(MainActivity.this);
+            User currentUser = db.getUserWithId(userLoggedIn);
+            db.close();
+            String role = currentUser.getUserRole();
+            if (role.equalsIgnoreCase("Administrator")) {
+                Intent i = new Intent(MainActivity.this, AdminActivity.class);
+                startActivity(i);
+            } else if (role.equalsIgnoreCase("Host")) {
+                Intent i = new Intent(MainActivity.this, HostActivity.class);
+                startActivity(i);
+            } else if (role.equalsIgnoreCase("Manager")) {
+                Intent i = new Intent(MainActivity.this, ManagerActivity.class);
+                startActivity(i);
+            } else {
+                Intent i = new Intent(MainActivity.this, SecurityGuardActivity.class);
+                startActivity(i);
+            }
         }
     }
 }
