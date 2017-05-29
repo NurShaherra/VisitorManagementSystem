@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -22,6 +23,9 @@ public class ManageUsers extends AppCompatActivity {
     Spinner spn;
     ArrayList<String> al;
     DBHandlerUser db;
+    private ListAdapter listAdapter;
+    private ArrayList<User> userArrayList;
+
 
     //ArrayList is String because CustomAdapter has not been created yet.
     @Override
@@ -34,6 +38,7 @@ public class ManageUsers extends AppCompatActivity {
         db = new DBHandlerUser(this);
         lv = (ListView) findViewById(R.id.lv_users);
         spn = (Spinner) findViewById(R.id.spinner);
+        userArrayList = new ArrayList<User>();
 
 //        display all users in listview
         // Refer to DBHandlerUser for the explanation of this method.
@@ -45,11 +50,9 @@ public class ManageUsers extends AppCompatActivity {
         db.close();
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.roles, android.R.layout.simple_spinner_item);
-//        String[] values =
-//                {"All", "Admin", "Manager", "Security Guard"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, values);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spn.setAdapter(adapter);
+
 
         spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -97,15 +100,31 @@ public class ManageUsers extends AppCompatActivity {
             }
         });
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(ManageUsers.this, UserDetails.class);
-                i.putExtra("name", al.get(position).toString());
-                startActivity(i);
-            }
-        });
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent details = new Intent(ManageUsers.this, UserDetails.class);
+                    // We have to identify what object, does the user clicked, because we are going to pass only clicked object details to the next activity
+                    // What we are going to do is, get the ID of the clicked item and get the values from the ArrayList which has
+                    //same array id
 
+                    User clickedObject = userArrayList.get(position);
+
+                    // We have to bundle the data, which we want to pass to the other activity from this activity
+                    Bundle dataBundle = new Bundle();
+                    dataBundle.putString("fullName", clickedObject.getFullName());
+                    dataBundle.putString("username", clickedObject.getUserName());
+                    dataBundle.putString("role", clickedObject.getUserRole());
+                    dataBundle.putString("email", clickedObject.getEmailAddress());
+                    dataBundle.putString("address", clickedObject.getUnitAddress());
+
+                    // Attach the bundled data to the intent
+                    details.putExtras(dataBundle);
+                    startActivity(details);
+
+
+                }
+            });
     }
 
 

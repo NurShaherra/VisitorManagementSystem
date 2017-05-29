@@ -23,13 +23,24 @@ public class UserDetails extends AppCompatActivity {
         tvEmail = (TextView) findViewById(R.id.tvEmail);
         tvAddress = (TextView) findViewById(R.id.tvAddress);
 
-        DBHandlerUser db = new DBHandlerUser(UserDetails.this);
-        ArrayList<User> user = db.getUser();
 
-        
-        Intent received = getIntent();
-        String name = received.getStringExtra("name");
-        headerName.setText(name);
+        Bundle extras = getIntent().getExtras();
+        String fullName = extras.getString("fullName");
+        String username = extras.getString("username");
+        String role = extras.getString("role");
+        String email = extras.getString("email");
+        String address = extras.getString("address");
+
+        tvFullName.setText(fullName);
+        tvUsername.setText(username);
+        tvRole.setText(role);
+        tvEmail.setText(email);
+        tvAddress.setText(address);
+
+
+
+
+
 
 
     }

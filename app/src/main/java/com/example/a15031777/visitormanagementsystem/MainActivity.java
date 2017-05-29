@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
                         } else if (role.equalsIgnoreCase("Host")) {
                             Intent i = new Intent(MainActivity.this, HostActivity.class);
                             startActivity(i);
+                        } else if (role.equalsIgnoreCase("Manager")) {
+                            Intent i = new Intent(MainActivity.this, ManagerActivity.class);
+                            startActivity(i);
                         }
 
                     } else {
