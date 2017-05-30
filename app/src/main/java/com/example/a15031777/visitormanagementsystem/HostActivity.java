@@ -24,7 +24,7 @@ public class HostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_host_register);
         etName = (EditText) findViewById(R.id.editTextName);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
-        etIC = (EditText) findViewById(R.id.editTextLicense);
+        etIC = (EditText) findViewById(R.id.editTextIC);
         etMobile = (EditText) findViewById(R.id.editTextMobile);
         btnSave = (Button) findViewById(R.id.buttonSave);
         tvTitle = (TextView) findViewById(R.id.textViewTitle);
@@ -34,24 +34,41 @@ public class HostActivity extends AppCompatActivity {
         User currentUser = db.getUserWithId(id);
         if (currentUser.getUserRole().equalsIgnoreCase("Host")) {
             tvTitle.setText("Welcome Host!");
+            btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //incomplete as send email and generate qr code is in the works.
+                    String name = etName.getText().toString();
+                    String email = etEmail.getText().toString();
+                    String nric = etIC.getText().toString();
+                    int mobile = Integer.parseInt(etMobile.getText().toString());
+                    //Idk what to put so just fuck it all and dash because what the fuck is this even.
+                    Visitor visitor = new Visitor(nric, name, email, mobile,"-");
+                    DBHandlerVisitor db = new DBHandlerVisitor(HostActivity.this);
+                    db.addVisitor(visitor, id);
+                    Toast.makeText(getBaseContext(), "Successfully saved visitor!", Toast.LENGTH_SHORT).show();
+                }
+            });
         } else {
             tvTitle.setText("Register Visitor");
+            btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //incomplete as send email and generate qr code is in the works.
+                    String name = etName.getText().toString();
+                    String email = etEmail.getText().toString();
+                    String nric = etIC.getText().toString();
+                    int mobile = Integer.parseInt(etMobile.getText().toString());
+                    //Idk what to put so just fuck it all and dash because what the fuck is this even.
+                    Visitor visitor = new Visitor(nric, name, email, mobile,"-");
+                    DBHandlerVisitor db = new DBHandlerVisitor(HostActivity.this);
+                    db.addVisitor(visitor, id);
+                    Toast.makeText(getBaseContext(), "Successfully saved visitor!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
         }
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //incomplete as send email and generate qr code is in the works.
-                String name = etName.getText().toString();
-                String email = etEmail.getText().toString();
-                String nric = etIC.getText().toString();
-                int mobile = Integer.parseInt(etMobile.getText().toString());
-                //Idk what to put so just fuck it all and dash because what the fuck is this even.
-                Visitor visitor = new Visitor(nric, name, email, mobile,"-");
-                DBHandlerVisitor db = new DBHandlerVisitor(HostActivity.this);
-                db.addVisitor(visitor, id);
-                Toast.makeText(HostActivity.this, "Successfully saved visitor!", Toast.LENGTH_SHORT).show();
-            }
-        });
+
     }
 
     @Override

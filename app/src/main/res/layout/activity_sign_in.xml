@@ -53,7 +53,7 @@
                 android:text="@string/icNumber" />
 
             <EditText
-                android:id="@+id/editTextLicense"
+                android:id="@+id/editTextIC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/textView25"
@@ -67,9 +67,9 @@
                 android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editTextLicense"
-                android:layout_alignStart="@+id/editTextLicense"
-                android:layout_below="@+id/editTextLicense"
+                android:layout_alignLeft="@+id/editTextIC"
+                android:layout_alignStart="@+id/editTextIC"
+                android:layout_below="@+id/editTextIC"
                 android:layout_marginTop="25dp"
                 android:text="@string/arrivedBy" />
 
@@ -85,9 +85,9 @@
                 android:id="@+id/buttonNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editTextLicense"
+                android:layout_alignLeft="@+id/editTextIC"
                 android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/editTextLicense"
+                android:layout_alignStart="@+id/editTextIC"
                 android:layout_below="@+id/spinnerTrans"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"

@@ -17,7 +17,7 @@ public class LicenseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_license);
         Intent i = getIntent();
         final String ic = i.getStringExtra("nric");
-        etLicense = (EditText) findViewById(R.id.editTextLicense);
+        etLicense = (EditText) findViewById(R.id.editTextIC);
         btnNext = (Button) findViewById(R.id.buttonNext);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,6 +27,7 @@ public class LicenseActivity extends AppCompatActivity {
                 i.putExtra("by", "Car");
                 i.putExtra("license", plateNum);
                 i.putExtra("nric", ic);
+                i.putExtra("sign","in");
                 startActivity(i);
             }
         });

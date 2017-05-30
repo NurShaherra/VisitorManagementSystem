@@ -89,7 +89,7 @@
                 android:text="IC Number:" />
 
             <EditText
-                android:id="@+id/editTextLicense"
+                android:id="@+id/editTextIC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/editTextEmail"
@@ -102,9 +102,9 @@
                 android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editTextLicense"
-                android:layout_alignStart="@+id/editTextLicense"
-                android:layout_below="@+id/editTextLicense"
+                android:layout_alignLeft="@+id/editTextIC"
+                android:layout_alignStart="@+id/editTextIC"
+                android:layout_below="@+id/editTextIC"
                 android:layout_marginTop="25dp"
                 android:text="Arrived By:" />
 
@@ -129,8 +129,8 @@
                 android:id="@+id/editText12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editTextLicense"
-                android:layout_alignRight="@+id/editTextLicense"
+                android:layout_alignEnd="@+id/editTextIC"
+                android:layout_alignRight="@+id/editTextIC"
                 android:layout_below="@+id/textView27"
                 android:ems="10"
                 android:inputType="textMultiLine" />
