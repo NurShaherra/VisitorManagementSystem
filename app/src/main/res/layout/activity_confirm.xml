@@ -26,7 +26,7 @@
                 app:srcCompat="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/textViewName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -45,7 +45,7 @@
             android:text="@string/fullname" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textViewFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -63,7 +63,7 @@
             android:text="@string/email" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/textViewEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -81,7 +81,7 @@
             android:text="@string/icNumber" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/textViewIC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -102,7 +102,7 @@
             android:text="@string/arrivedBy" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textViewMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -120,7 +120,7 @@
             android:text="@string/license" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/textViewLicense"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"

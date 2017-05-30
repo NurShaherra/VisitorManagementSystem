@@ -2,6 +2,7 @@ package com.example.a15031777.visitormanagementsystem;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -46,6 +47,16 @@ public class DBHandlerVisitor extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void updateVisitor(String ic,String mode, int sign, String license) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues data = new ContentValues();
+        data.put(COLUMN_TRANSPORT, mode);
+        data.put(COLUMN_LICENSE,license);
+        data.put(COLUMN_SIGNED, sign);
+        db.update(TABLE_VISITOR, data, COLUMN_NRIC + "='" + ic + "'", null);
+
+    }
+
     public void addVisitor(Visitor visitor, int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -59,4 +70,59 @@ public class DBHandlerVisitor extends SQLiteOpenHelper {
         db.insert(TABLE_VISITOR, null, values);
         db.close();
     }
+
+    public Boolean checkSignedIn(String nric) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selectQuery = "SELECT * FROM " + TABLE_VISITOR + " WHERE " + COLUMN_NRIC + " = '" +
+                nric + "' ";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        int sign_in = cursor.getInt(4);
+        cursor.close();
+        db.close();
+        if (sign_in == 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public Boolean checkVisitor(String nric) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selectQuery = "SELECT * FROM " + TABLE_VISITOR + " WHERE " + COLUMN_NRIC + " = '" +
+                nric + "' ";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.close();
+            return true;
+        }
+        cursor.moveToFirst();
+        return false;
+    }
+
+    public Visitor getVisitor(String nric) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_VISITOR + " WHERE " + COLUMN_NRIC + " = '" +
+                nric + "' ";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        //create the user obj
+        Visitor obj = new Visitor(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getInt(5), "-");
+        obj.setModeOfTransport(cursor.getString(3));
+        obj.setLicensePlate(cursor.getString(6));
+        obj.setSignedIn(cursor.getInt(4));
+        //return the obj
+        cursor.close();
+        db.close();
+        return obj;
+    }
+
 }

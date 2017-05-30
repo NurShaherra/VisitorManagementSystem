@@ -24,7 +24,7 @@ public class HostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_host_register);
         etName = (EditText) findViewById(R.id.editTextName);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
-        etIC = (EditText) findViewById(R.id.editTextIC);
+        etIC = (EditText) findViewById(R.id.editTextLicense);
         etMobile = (EditText) findViewById(R.id.editTextMobile);
         btnSave = (Button) findViewById(R.id.buttonSave);
         tvTitle = (TextView) findViewById(R.id.textViewTitle);
@@ -45,7 +45,8 @@ public class HostActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String nric = etIC.getText().toString();
                 int mobile = Integer.parseInt(etMobile.getText().toString());
-                Visitor visitor = new Visitor(nric, name, email, mobile);
+                //Idk what to put so just fuck it all and dash because what the fuck is this even.
+                Visitor visitor = new Visitor(nric, name, email, mobile,"-");
                 DBHandlerVisitor db = new DBHandlerVisitor(HostActivity.this);
                 db.addVisitor(visitor, id);
                 Toast.makeText(HostActivity.this, "Successfully saved visitor!", Toast.LENGTH_SHORT).show();

@@ -42,10 +42,12 @@ public class SecurityGuardActivity extends AppCompatActivity {
                     Intent i = new Intent(SecurityGuardActivity.this, HostActivity.class);
                     startActivity(i);
                 } else if (position == 1) {
-                    Intent i = new Intent(SecurityGuardActivity.this, SignInActivity.class);
+                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
+                    i.putExtra("sign","Sign In");
                     startActivity(i);
                 } else if (position == 2) {
-                    Intent i = new Intent(SecurityGuardActivity.this, SignOutActivity.class);
+                    Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
+                    i.putExtra("sign","Sign Out");
                     startActivity(i);
                 }
 

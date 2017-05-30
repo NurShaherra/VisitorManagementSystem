@@ -1,11 +1,8 @@
 package com.example.a15031777.visitormanagementsystem;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class UserDetails extends AppCompatActivity {
     TextView tvFullName, tvUsername, tvRole, tvEmail, tvAddress;
@@ -16,7 +13,7 @@ public class UserDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
 
-        TextView headerName = (TextView) findViewById(R.id.tvName);
+        TextView headerName = (TextView) findViewById(R.id.textViewName);
         tvFullName = (TextView) findViewById(R.id.tvFullName);
         tvUsername = (TextView) findViewById(R.id.tvUsername);
         tvRole = (TextView) findViewById(R.id.tvRole);

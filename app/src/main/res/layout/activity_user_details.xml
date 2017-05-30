@@ -27,7 +27,7 @@
                     app:srcCompat="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/textViewName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/imageButton"
@@ -52,8 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/textView28"
-                android:layout_alignLeft="@+id/tvName"
-                android:layout_alignStart="@+id/tvName"
+                android:layout_alignLeft="@+id/textViewName"
+                android:layout_alignStart="@+id/textViewName"
                 android:layout_marginLeft="26dp"
                 android:layout_marginStart="26dp" />
 
