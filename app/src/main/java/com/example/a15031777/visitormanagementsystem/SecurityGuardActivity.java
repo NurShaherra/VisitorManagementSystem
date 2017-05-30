@@ -34,7 +34,7 @@ public class SecurityGuardActivity extends AppCompatActivity {
         String[] values = new String[]{"Register Visitor", "Sign In", "Sign Out"};
         aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
         lv.setAdapter(aa);
-
+        final SharedPreferences.Editor edit = pref.edit();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -43,11 +43,11 @@ public class SecurityGuardActivity extends AppCompatActivity {
                     startActivity(i);
                 } else if (position == 1) {
                     Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
-                    i.putExtra("sign","Sign In");
+                    edit.putString("sign","Sign In").commit();
                     startActivity(i);
                 } else if (position == 2) {
                     Intent i = new Intent(SecurityGuardActivity.this, QRManualActivity.class);
-                    i.putExtra("sign","Sign Out");
+                    edit.putString("sign","Sign Out").commit();
                     startActivity(i);
                 }
 

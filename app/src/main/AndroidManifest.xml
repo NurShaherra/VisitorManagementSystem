@@ -21,7 +21,13 @@
         </activity>
         <activity android:name=".AdminActivity" />
         <activity android:name=".ManagerReport" />
-        <activity android:name=".QRManualActivity" />
+        <activity android:name=".QRManualActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.RUN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".SignInActivity" />
         <activity android:name=".LicenseActivity" />
         <activity android:name=".ConfirmActivity" />

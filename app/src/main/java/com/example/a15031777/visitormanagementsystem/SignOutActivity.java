@@ -17,6 +17,9 @@ public class SignOutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_out);
         etIC = (EditText)findViewById(R.id.editTextIC);
         btnNext = (Button)findViewById(R.id.buttonNxt);
+        Intent i = getIntent();
+        String nric = i.getStringExtra("nric");
+        etIC.setText(nric);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

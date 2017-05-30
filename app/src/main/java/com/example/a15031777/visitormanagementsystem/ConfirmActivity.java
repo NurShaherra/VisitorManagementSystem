@@ -1,7 +1,9 @@
 package com.example.a15031777.visitormanagementsystem;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +23,8 @@ public class ConfirmActivity extends AppCompatActivity {
         final String ic = i.getStringExtra("nric");
         final String license = i.getStringExtra("license");
         final String arrivedBy = i.getStringExtra("by");
-        String sign = i.getStringExtra("sign");
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(ConfirmActivity.this);
+        String sign = pref.getString("sign","");
         tvTitle = (TextView) findViewById(R.id.textViewName);
         tvName = (TextView) findViewById(R.id.textViewFullName);
         tvEmail = (TextView) findViewById(R.id.textViewEmail);
@@ -35,7 +38,7 @@ public class ConfirmActivity extends AppCompatActivity {
         tvTitle.setText(current.getFullName());
         tvName.setText(current.getFullName());
         tvEmail.setText(current.getEmailAddress());
-        if (sign.equalsIgnoreCase("in")) {
+        if (sign.equalsIgnoreCase("Sign In")) {
             tvArrived.setText(arrivedBy);
             tvLicense.setText(license);
             btnConfirm.setOnClickListener(new View.OnClickListener() {

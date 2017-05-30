@@ -25,6 +25,9 @@ public class SignInActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.transport, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        Intent i = getIntent();
+        String nric = i.getStringExtra("nric");
+        etIc.setText(nric);
         spn.setAdapter(adapter);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +38,6 @@ public class SignInActivity extends AppCompatActivity {
                 if (checkVisitor == true) {
                     if (spn.getSelectedItem().toString().equalsIgnoreCase("Foot")) {
                         Intent i = new Intent(SignInActivity.this, ConfirmActivity.class);
-                        i.putExtra("sign","in");
                         i.putExtra("by", "Foot");
                         //When you use null, the compiler doesn't know which is the type you want to use and cannot decide which overload of the method to use.
                         //You can cast your null to String to inform compiler which method you use:
