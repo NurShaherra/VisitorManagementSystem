@@ -5,52 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.a15031777.visitormanagementsystem.ManagerReport">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/linearLayout3">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:id="@+id/linearLayout3">-->
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                app:srcCompat="@mipmap/ic_launcher" />
+            <!--<ImageButton-->
+                <!--android:id="@+id/imageButton"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="25dp"-->
+                <!--android:layout_marginStart="25dp"-->
+                <!--android:layout_marginTop="25dp"-->
+                <!--app:srcCompat="@mipmap/ic_launcher" />-->
 
-            <TextView
-                android:id="@+id/textViewName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:text="@string/evacuationReport" />
+            <!--<TextView-->
+                <!--android:id="@+id/textViewName"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="25dp"-->
+                <!--android:layout_marginStart="25dp"-->
+                <!--android:layout_marginTop="25dp"-->
+                <!--android:text="@string/evacuationReport" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
     <ListView
-        android:id="@+id/lv"
+        android:id="@+id/lvReport"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout2"
-        android:layout_below="@+id/linearLayout3" />
+        android:layout_height="match_parent" />
+        <!--android:layout_above="@+id/linearLayout2"-->
+        <!--android:layout_below="@+id/linearLayout3" -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:id="@+id/linearLayout2">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:padding="8dp"-->
+            <!--android:id="@+id/linearLayout2">-->
 
-            <TextView
-                android:id="@+id/textViewNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
-        </LinearLayout>
+            <!--<TextView-->
+                <!--android:id="@+id/textViewNumber"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:text="TextView" />-->
+        <!--</LinearLayout>-->
 </RelativeLayout>
